@@ -4,7 +4,6 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { UserProvider } from "@/app/context/Usercontext"
 import MagicProvider from "@/hooks/MagicProvider";
 
 
@@ -38,7 +37,6 @@ export default function RootLayout({
         <ToastContainer />
           <MagicProvider>
             {children}
-          {/* <UserProvider>{children}</UserProvider> */}
         </MagicProvider>
         
       </body>

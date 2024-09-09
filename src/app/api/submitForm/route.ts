@@ -3,17 +3,7 @@
 import { NextResponse } from 'next/server';
 import supabase from '../../../lib/supabase';
 import { UserInfo } from '@/utils/types';
-// interface UserInfo {
-//   firstname: string;
-//   lastname: string;
-//   email: string;
-//   jobtitle: string;
-//   company: string;
-//   website: string;
-//   message: string;
-//   nextjsexpr: string;
-//   ticket_type: string;
-// }
+
 
 export async function POST(request: Request) {
   const {

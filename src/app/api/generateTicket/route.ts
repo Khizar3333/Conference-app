@@ -19,11 +19,10 @@ export async function POST(req: NextRequest) {
     doc.text(`Email: ${ticketData.email}`, 20, 60);
     doc.text(`Ticket Type: ${ticketData.ticketType}`, 20, 70);
 
-    // Save ticket to database
     const { data, error } = await supabase
       .from('tickets')
       .insert({
-        user_id: userId, // Now this can accept the Magic DID as a string
+        user_id: userId, 
         ticket_id: ticketData.id,
         name: ticketData.name,
         email: ticketData.email,
@@ -32,10 +31,9 @@ export async function POST(req: NextRequest) {
 
     if (error) throw error;
 
-    // Convert PDF to buffer
+   
     const pdfBuffer = doc.output('arraybuffer');
 
-    // Send PDF as response
     return new NextResponse(Buffer.from(pdfBuffer), {
       status: 200,
       headers: {

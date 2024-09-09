@@ -2,7 +2,7 @@
 import MagicProvider from '@/hooks/MagicProvider';
 
 import { useEffect, useState } from 'react';
-import { ToastContainer } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 import Login from '@/components/magic/login/Login';
 import Dashboard from '@/components/ui/Dashboard';

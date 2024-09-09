@@ -6,7 +6,7 @@ export async function POST(request: Request) {
   const { email } = await request.json();
 
   const { data, error } = await supabase
-        .from('users') // Assuming a 'users' table in Supabase
+        .from('users') 
         .upsert({ email: email }, { onConflict: 'email' });
 
   if (error) {
