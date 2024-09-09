@@ -6,8 +6,8 @@ export async function POST(request: Request) {
   const { email } = await request.json();
 
   const { data, error } = await supabase
-    .from('users')
-    .insert([{ email }]);
+        .from('users') // Assuming a 'users' table in Supabase
+        .upsert({ email: email }, { onConflict: 'email' });
 
   if (error) {
     return new Response(JSON.stringify({ error: error.message }), { status: 400 });

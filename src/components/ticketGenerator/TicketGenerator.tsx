@@ -43,17 +43,17 @@ const TicketGenerator: React.FC<TicketGeneratorProps> = ({ userId, onTicketGener
       a.click();
       window.URL.revokeObjectURL(url);
 
-      onTicketGenerated(); // Refresh the ticket list after generating a new ticket
+      onTicketGenerated(); 
     } catch (error) {
       console.error('Error generating ticket:', error);
-      // Handle error (e.g., show an error message to the user)
+      
     }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     generatePDF({
-      id: `TICKET-${Date.now()}`, // Generate a unique ID
+      id: `TICKET-${Date.now()}`, 
       name,
       email,
       ticketType,
@@ -133,7 +133,7 @@ export const generatePDF = async (ticketData: TicketData) => {
     window.URL.revokeObjectURL(url);
   } catch (error) {
     console.error('Error generating ticket:', error);
-    // Handle error (e.g., show an error message to the user)
+   
   }
 };
 
@@ -149,58 +149,3 @@ export default TicketGenerator;
 
 
 
-
-// import React from 'react';
-
-// interface TicketData {
-//   id: string;
-//   name: string;
-//   email: string;
-//   ticketType: string;
-// }
-
-// interface TicketGeneratorProps {
-//   ticketData: TicketData;
-// }
-
-// const TicketGenerator: React.FC<TicketGeneratorProps> = ({ ticketData }) => {
-//   const generatePDF = async () => {
-//     try {
-//       const response = await fetch('/api/generateTicket', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(ticketData),
-//       });
-
-//       if (!response.ok) {
-//         throw new Error('Failed to generate ticket');
-//       }
-
-//       const blob = await response.blob();
-//       const url = window.URL.createObjectURL(blob);
-//       const a = document.createElement('a');
-//       a.style.display = 'none';
-//       a.href = url;
-//       a.download = 'event_ticket.pdf';
-//       document.body.appendChild(a);
-//       a.click();
-//       window.URL.revokeObjectURL(url);
-//     } catch (error) {
-//       console.error('Error generating ticket:', error);
-//       // Handle error (e.g., show an error message to the user)
-//     }
-//   };
-
-//   return (
-//     <button
-//       onClick={generatePDF}
-//       className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-//     >
-//       Download Ticket PDF
-//     </button>
-//   );
-// };
-
-// export default TicketGenerator;

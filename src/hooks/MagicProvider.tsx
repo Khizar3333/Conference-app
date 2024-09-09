@@ -19,19 +19,7 @@ export const useMagic = () => useContext(MagicContext);
 const MagicProvider = ({ children }: { children: ReactNode }) => {
   const [magic, setMagic] = useState<Magic | null>(null);
 
-  // useEffect(() => {
-  //   if (process.env.NEXT_PUBLIC_MAGIC_API_KEY) {
-  //     const magic = new MagicBase(process.env.NEXT_PUBLIC_MAGIC_API_KEY as string, {
-  //       network: {
-  //         rpcUrl: getNetworkUrl(),
-  //         chainId: getChainId(),
-  //       },
-  //       extensions: [new OAuthExtension()],
-  //     });
-
-  //     setMagic(magic);
-  //   }
-  // }, []);
+ 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const magic = new MagicBase(process.env.NEXT_PUBLIC_MAGIC_API_KEY as string, {
