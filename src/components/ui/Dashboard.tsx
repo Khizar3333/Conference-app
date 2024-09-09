@@ -1,12 +1,11 @@
 import React from 'react';
-import WalletMethods from '../magic/cards/WalletMethodsCard';
-import SendTransaction from '../magic/cards/SendTransactionCard';
+
 import Spacer from '@/components/ui/Spacer';
 import { LoginProps } from '@/utils/types';
-import UserInfo from '@/components/magic/cards/UserInfoCard';
+
 import DevLinks from './DevLinks';
 
-import SmartContract from '../magic/cards/SmartContract';
+
 import { isTestnet } from '@/utils/smartContract';
 
 export default function Dashboard({ token, setToken }: LoginProps) {
